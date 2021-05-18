@@ -33,7 +33,8 @@ const oldScrabbleScorer = (word) => {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-  word = input.question("Let's play some scrabble! Enter a word:");
+  console.clear();
+  word = input.question("Let's play some scrabble!\n\nEnter a word:");
   //  console.log(oldScrabbleScorer(word));
   //  console.log(simpleScore(word));
   //  console.log(vowelBonusScore(word));
@@ -69,7 +70,7 @@ const vowelBonusScore = (word) => {
   return totalScore
 }
 
-let scoreOld = {
+let scoreScrabble = {
   name: "Scrabble",
   description:"The traditional scoring algorithm.",
   scoringFunction: oldScrabbleScorer
@@ -88,51 +89,64 @@ let scoreVowel = {
 
 let scrabbleScore;
 
-const scoringAlgorithms = [scoreOld, scoreSimple, scoreVowel];
+const scoringAlgorithms = [scoreSimple, scoreVowel, scoreScrabble];
 
 function scorerPrompt() {
-  choice = input.question("Which scoring algorithm would you like to use?\n\n0 - Simple: One point per character\n1 - Vowel Bonus: Vowels are worth 3 points\n2 - Scrabble: Uses scrabble point system\nEnter 0, 1, or 2: ");
+  choice = Number(input.question("Which scoring algorithm would you like to use?\n\n0 - Simple: One point per character\n1 - Vowel Bonus: Vowels are worth 3 points\n2 - Scrabble: Uses scrabble point system\nEnter 0, 1, or 2: "));
   for (i = 0; i < scoringAlgorithms.length; i++) {
     if (scoringAlgorithms[i] === choice) {
     }
-  }
    return scoringAlgorithms[i];
+  }
 }
 
-function transform() {};
-
-let newPointStructure = {
-  a: 1,
-  b: 3,
-  c: 3,
-  d: 2,
-  e: 1,
-  f: 4,
-  g: 2,
-  h: 4,
-  i: 1,
-  j: 8,
-  k: 5,
-  l: 1,
-  m: 3,
-  n: 1,
-  o: 1,
-  p: 3,
-  q: 10,
-  r: 1,
-  s: 1,
-  t: 1,
-  u: 1,
-  v: 4,
-  w: 4,
-  x: 8,
-  y: 4,
-  z: 10
+let newPointStructure = {};
+  // a: 1,
+  // b: 3,
+  // c: 3,
+  // d: 2,
+  // e: 1,
+  // f: 4,
+  // g: 2,
+  // h: 4,
+  // i: 1,
+  // j: 8,
+  // k: 5,
+  // l: 1,
+  // m: 3,
+  // n: 1,
+  // o: 1,
+  // p: 3,
+  // q: 10,
+  // r: 1,
+  // s: 1,
+  // t: 1,
+  // u: 1,
+  // v: 4,
+  // w: 4,
+  // x: 8,
+  // y: 4,
+  // z: 10
+// };
+//  console.log(key);
+//     console.log(oldPointStructure[key][0])
+//     console.log(newPointStructure);
+// newPointStructure.name = "matt";//
+function transform(oldPointStructure) {
+  for (const key in oldPointStructure) {
+    let letters = oldPointStructure[1]
+    for (i=0; i<letters.length; i++) {
+    newPointStructure[oldPointStructure[key][i]] = 2;
+    }
+  }console.log({newPointStructure});
 }
+
 
 function runProgram() {
-   initialPrompt();
-   scorerPrompt();
+  //  initialPrompt();
+  //  scorerPrompt();
+  //  console.log(`Score for ${word} is ${scoringAlgorithms[choice].scoringFunction(word)}`);
+   transform(oldPointStructure);
 
 }
 
