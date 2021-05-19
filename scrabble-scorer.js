@@ -69,13 +69,13 @@ const vowelBonusScore = (word) => {
   word = word.toUpperCase();
   // let vowelScore = "";
   // let consonantScore = "";
-  let totalScore = "";
+  let totalScore = 0;
   for (let i = 0; i < word.length; i++) {
     if (word[i].includes("A") || word[i].includes("E") || word[i].includes("I") || word[i].includes("O") || word[i].includes("U")) {
-      totalScore += Number(3);
+      totalScore += 3;
+      console.log({totalScore});
     } else {
         totalScore++;
-        totalScore = Number(totalScore)
       }
     // totalScore = vowelScore + consonantScore;
   }
@@ -127,26 +127,10 @@ function scorerPrompt() {
 }
 
 
-// function transform(oldPointStructure) {
-//   let nPointStructure = {};
-//   for (const key in oldPointStructure) {
-//     let letters = oldPointStructure[key];
-//     for (i=0; i<letters.length; i++) {
-//     nPointStructure[oldPointStructure[key][i].toLowerCase()] = key;
-//     }
-//   }return nPointStructure;
-// }
-
-// let newPointStructure =  transform(oldPointStructure);
-
 function runProgram() {
   initialPrompt();
   scorerPrompt();
   console.log(`Score for '${word}' is: ${scoringAlgorithms[choice].scoringFunction(word)}`);
-  //  console.log({newPointStructure});
-  
-   
-
 }
 
 // Don't write any code below this line //
