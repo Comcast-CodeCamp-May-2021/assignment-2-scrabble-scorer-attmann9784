@@ -75,6 +75,7 @@ const vowelBonusScore = (word) => {
       totalScore += 3;
     } else {
         totalScore++;
+        totalScore = Number(totalScore)
       }
     // totalScore = vowelScore + consonantScore;
   }
