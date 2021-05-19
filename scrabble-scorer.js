@@ -72,7 +72,7 @@ const vowelBonusScore = (word) => {
   let totalScore = "";
   for (let i = 0; i < word.length; i++) {
     if (word[i].includes("A") || word[i].includes("E") || word[i].includes("I") || word[i].includes("O") || word[i].includes("U")) {
-      totalScore += 3;
+      totalScore += Number(3);
     } else {
         totalScore++;
         totalScore = Number(totalScore)
